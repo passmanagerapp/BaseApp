@@ -14,3 +14,8 @@ plugins {
 task clean(type: Delete) {
     delete rootProject.buildDir
 }
+
+ext {
+ navigationComponentVersion = '2.5.2'
+ hiltVersion = '2.43'
+}
