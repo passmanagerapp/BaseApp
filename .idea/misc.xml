@@ -4,6 +4,9 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/samet/AndroidStudioProjects/BaseApp/app/src/main/res/layout/activity_main.xml" value="0.22" />
+        <entry key="..\:/Users/samet/AndroidStudioProjects/BaseApp/app/src/main/res/layout/fragment_home.xml" value="0.5" />
+        <entry key="..\:/Users/samet/AndroidStudioProjects/BaseApp/app/src/main/res/layout/fragment_setting.xml" value="0.1814814814814815" />
+        <entry key="..\:/Users/samet/AndroidStudioProjects/BaseApp/app/src/main/res/menu/bottom_menu.xml" value="0.1814814814814815" />
       </map>
     </option>
   </component>
