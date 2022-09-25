@@ -9,10 +9,10 @@ import com.akilincarslan.baseapp.utils.BaseInjectionFragment
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class HomeFragment : BaseInjectionFragment<FragmentHomeBinding,MainViewModel>() {
+class HomeFragment : BaseInjectionFragment<FragmentHomeBinding,HomeViewModel>() {
 
     override fun getLayoutRes(): Int = R.layout.fragment_home
-    override fun getViewModelClass(): Class<MainViewModel> = MainViewModel::class.java
+    override fun getViewModelClass(): Class<HomeViewModel> = HomeViewModel::class.java
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)

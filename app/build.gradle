@@ -22,6 +22,10 @@ android {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            buildConfigField "String", "BASE_URL","\"https://www.google.com/release\""
+        }
+        debug {
+            buildConfigField "String", "BASE_URL","\"https://www.google.com/debug\""
         }
     }
     compileOptions {
@@ -51,8 +55,11 @@ dependencies {
     implementation "com.google.dagger:hilt-android:${hiltVersion}"
     kapt "com.google.dagger:hilt-compiler:${hiltVersion}"
 
-    // Kotlin
+
     implementation "androidx.navigation:navigation-fragment-ktx:${navigationComponentVersion}"
     implementation "androidx.navigation:navigation-ui-ktx:${navigationComponentVersion}"
+
+    implementation "com.squareup.retrofit2:retrofit:${retrofitVersion}"
+
 
 }
