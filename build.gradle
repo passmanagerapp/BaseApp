@@ -2,6 +2,8 @@
 buildscript {
     dependencies {
         classpath 'com.google.dagger:hilt-android-gradle-plugin:2.43'
+        classpath 'com.google.gms:google-services:4.3.14'
+        classpath 'com.google.firebase:firebase-crashlytics-gradle:2.9.2'
     }
 }
 
@@ -21,4 +23,5 @@ ext {
  retrofitVersion = '2.9.0'
  gsonVersion = '2.8.9'
  okHttpVersion = '4.10.0'
+ firebaseVersion = '30.4.1'
 }
