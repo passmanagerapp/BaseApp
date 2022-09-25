@@ -19,4 +19,6 @@ ext {
  navigationComponentVersion = '2.5.2'
  hiltVersion = '2.43'
  retrofitVersion = '2.9.0'
+ gsonVersion = '2.8.9'
+ okHttpVersion = '4.10.0'
 }

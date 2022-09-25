@@ -22,10 +22,10 @@ android {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
-            buildConfigField "String", "BASE_URL","\"https://www.google.com/release\""
+            buildConfigField "String", "BASE_URL","\"https://www.google.com/release/\""
         }
         debug {
-            buildConfigField "String", "BASE_URL","\"https://www.google.com/debug\""
+            buildConfigField "String", "BASE_URL","\"https://www.google.com/debug/\""
         }
     }
     compileOptions {
@@ -41,6 +41,9 @@ android {
     }
 }
 
+kapt {
+    correctErrorTypes = true
+}
 dependencies {
 
     implementation 'androidx.core:core-ktx:1.7.0'
@@ -60,6 +63,14 @@ dependencies {
     implementation "androidx.navigation:navigation-ui-ktx:${navigationComponentVersion}"
 
     implementation "com.squareup.retrofit2:retrofit:${retrofitVersion}"
+    implementation "com.squareup.retrofit2:converter-gson:${retrofitVersion}"
+
+    implementation "com.google.code.gson:gson:${gsonVersion}"
+
+    implementation(platform("com.squareup.okhttp3:okhttp-bom:${okHttpVersion}"))
+    implementation("com.squareup.okhttp3:okhttp")
+    implementation("com.squareup.okhttp3:logging-interceptor")
+
 
 
 }
