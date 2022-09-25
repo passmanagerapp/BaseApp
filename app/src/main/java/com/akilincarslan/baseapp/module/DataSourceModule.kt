@@ -1,9 +1,8 @@
 package com.akilincarslan.baseapp.module
 
 import com.akilincarslan.baseapp.network.services.profile.ProfileRemoteDataSource
+import com.akilincarslan.baseapp.network.services.profile.ProfileRemoteDataSourceImpl
 import com.akilincarslan.baseapp.network.services.profile.ProfileService
-import com.akilincarslan.baseapp.repos.ProfileRepository
-import com.akilincarslan.baseapp.repos.ProfileRepositoryImpl
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -12,11 +11,13 @@ import javax.inject.Singleton
 
 @Module
 @InstallIn(SingletonComponent::class)
-class RepositoryModule {
+class DataSourceModule {
 
     @Provides
     @Singleton
-    fun providesProfileRepository(dataSource: ProfileRemoteDataSource) :ProfileRepository {
-        return ProfileRepositoryImpl(dataSource)
+    fun providesProfileRemoteDataSource(
+        service: ProfileService
+    ) :ProfileRemoteDataSource {
+        return ProfileRemoteDataSourceImpl(service)
     }
 }

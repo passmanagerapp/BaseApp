@@ -1,8 +1,7 @@
-package com.akilincarslan.baseapp.repos
+package com.akilincarslan.baseapp.network.services.profile
 
 import com.akilincarslan.baseapp.network.responses.ProfileResponse
 
-interface ProfileRepository {
+interface ProfileRemoteDataSource {
     suspend fun fetchProfileInfo(): ProfileResponse
-
 }
