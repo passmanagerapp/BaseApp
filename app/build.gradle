@@ -39,6 +39,15 @@ android {
         viewBinding true
         dataBinding true
     }
+
+    signingConfigs {
+        release {
+            storeFile file("release/baseapp.jks")
+            storePassword "basepass"
+            keyAlias "base"
+            keyPassword "basepass"
+        }
+    }
 }
 
 kapt {
