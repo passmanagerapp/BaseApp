@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">BaseApp</string>
+    <string name="home">Home</string>
+    <string name="setting">Settings</string>
 </resources>
