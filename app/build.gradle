@@ -77,6 +77,8 @@ dependencies {
     implementation 'com.google.firebase:firebase-analytics-ktx'
     implementation 'com.google.firebase:firebase-crashlytics-ktx'
 
+    implementation 'androidx.core:core-splashscreen:1.0.0'
+    implementation "com.tbuonomo:dotsindicator:4.3"
 
 
 
