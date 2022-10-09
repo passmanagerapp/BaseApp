@@ -9,4 +9,5 @@
     <color name="primaryTextColor">#ffffff</color>
     <color name="gray_75">#757575</color>
     <color name="onboard_bg_color">#D6D6D6</color>
+    <color name="red">#BF360C</color>
 </resources>

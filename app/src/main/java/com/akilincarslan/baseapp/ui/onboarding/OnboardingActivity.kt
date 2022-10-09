@@ -3,10 +3,13 @@ package com.akilincarslan.baseapp.ui.onboarding
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
+import androidx.core.view.isVisible
+import androidx.viewpager2.widget.ViewPager2
 import com.akilincarslan.baseapp.R
 import com.akilincarslan.baseapp.databinding.ActivityOnboardingBinding
 import com.akilincarslan.baseapp.models.Onboard
 import com.akilincarslan.baseapp.utils.BaseInjectionActivity
+import com.akilincarslan.baseapp.utils.extension.showToast
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -23,8 +26,14 @@ class OnboardingActivity : BaseInjectionActivity<ActivityOnboardingBinding,Onboa
         viewModel.fetchOnboardList()
     }
 
-    private fun initBinding(){
-        val adapter = OnboardingAdapter()
+    private fun initBinding() = with(binding){
+        viewPager.registerOnPageChangeCallback(object :ViewPager2.OnPageChangeCallback() {
+            override fun onPageSelected(position: Int) {
+             buttonGetStarted.isVisible = position == 2
+             buttonGetStarted.animate().alpha(if (position ==2) 1f else 0f)
+            }
+        })
+        buttonGetStarted.setOnClickListener {}
     }
 
     private fun initObservers() {

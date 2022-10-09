@@ -3,4 +3,11 @@
     <string name="home">Home</string>
     <string name="setting">Settings</string>
     <string name="lorem_ipsum">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis vitae porta lorem, eu imperdiet purus. Sed at posuere orci, et rhoncus massa. Interdum et malesuada fames ac ante ipsum primis in faucibus. Aliquam ultrices ut metus id aliquam. Suspendisse vitae sem lacinia, varius ex eu, aliquam ante. Mauris tristique vulputate erat, elementum elementum metus. Donec sollicitudin luctus metus ac elementum. Curabitur tortor lectus, scelerisque ac tellus id, ullamcorper egestas nibh. Fusce sit amet diam pulvinar, blandit tortor consequat, finibus nibh.</string>
+    <string name="onboard_title1">Read quotes of philosophers</string>
+    <string name="onboard_title2">Look at the clips of movies with subtitles</string>
+    <string name="onboard_title3">Filter by country,date</string>
+    <string name="onboard_desc1">With an amazing design, read and think about the quotes of philosophers.</string>
+    <string name="onboard_desc2">Check and read the details of a movie from a movie clip.</string>
+    <string name="onboard_desc3">Filter the movies and philosophers by date or country</string>
+    <string name="get_started">Get Started</string>
 </resources>

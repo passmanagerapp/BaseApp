@@ -5,13 +5,13 @@ import com.akilincarslan.baseapp.R
 import com.akilincarslan.baseapp.models.Onboard
 import javax.inject.Inject
 
-class OnboardRepositoryImpl @Inject constructor(context:Context) :OnboardRepository{
+class OnboardRepositoryImpl @Inject constructor(val context:Context) :OnboardRepository{
 
     override suspend fun fetchOnboardList(): List<Onboard> {
         return listOf(
-            Onboard(R.drawable.ic_launcher_foreground,"Read quotes of philosophers","With an amazing design, read and think about the quotes of philosophers."),
-            Onboard(R.drawable.ic_launcher_foreground,"Look at the clips of movies with subtitles","Check and read the details of a movie from a movie clip."),
-            Onboard(R.drawable.ic_launcher_foreground,"Filter by country,date","Filter the movies and philosophers by date or country"),
+            Onboard(R.drawable.philosophy_1,context.getString(R.string.onboard_title1),context.getString(R.string.onboard_desc1)),
+            Onboard(R.drawable.philosophy_2,context.getString(R.string.onboard_title2),context.getString(R.string.onboard_desc2)),
+            Onboard(R.drawable.philosophy_3,context.getString(R.string.onboard_title3),context.getString(R.string.onboard_desc3)),
         )
     }
 }

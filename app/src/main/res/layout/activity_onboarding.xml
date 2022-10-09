@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--suppress AndroidUnresolvableTag -->
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
@@ -10,15 +11,29 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/primaryDarkColor"
+        android:background="@color/onboard_bg_color"
         tools:context=".ui.onboarding.OnboardingActivity">
 
         <androidx.viewpager2.widget.ViewPager2
             android:id="@+id/view_pager"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="horizontal"
-            android:layout_above="@id/dots_indicator"/>
+            android:layout_above="@id/button_get_started"
+            android:orientation="horizontal" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/button_get_started"
+            style="@style/Widget.MaterialComponents.Button.TextButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@id/dots_indicator"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="25dp"
+            android:text="@string/get_started"
+            android:visibility="invisible"
+            android:textAllCaps="true"
+            android:textAppearance="@style/TextStyle.Bold.16dp"
+            android:textColor="@color/primaryColor" />
 
         <com.tbuonomo.viewpagerdotsindicator.WormDotsIndicator
             android:id="@+id/dots_indicator"
@@ -27,12 +42,13 @@
             android:layout_alignParentBottom="true"
             android:layout_centerHorizontal="true"
             android:layout_marginBottom="25dp"
-            app:dotsColor="@color/white"
+            app:dotsColor="@color/primaryDarkColor"
             app:dotsCornerRadius="8dp"
             app:dotsSize="16dp"
             app:dotsSpacing="4dp"
-            app:dotsStrokeColor="@color/white"
-            app:dotsStrokeWidth="2dp" />
+            app:dotsStrokeColor="@color/primaryDarkColor"
+            app:dotsStrokeWidth="2dp"
+            tools:ignore="MissingClass" />
 
 
     </RelativeLayout>

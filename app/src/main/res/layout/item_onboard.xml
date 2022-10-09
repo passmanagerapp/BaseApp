@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:alpha="0.7"
     android:background="@color/onboard_bg_color"
     android:padding="15dp">
 
@@ -12,18 +13,21 @@
         android:layout_width="150dp"
         android:layout_height="150dp"
         android:layout_marginBottom="15dp"
+        tools:src="@drawable/philosophy_1"
+        android:scaleType="centerCrop"
         app:layout_constraintBottom_toTopOf="@+id/text_view_onboard"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.App.CornerSize50Percent"
-        app:strokeColor="@color/primaryLightColor"
-        app:strokeWidth="3dp" />
+        app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.App.CornerCut"
+        app:strokeColor="@color/red"
+        app:strokeWidth="5dp" />
 
     <TextView
         android:id="@+id/text_view_onboard"
         style="@style/TextStyle.Bold.24dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:textAlignment="center"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
