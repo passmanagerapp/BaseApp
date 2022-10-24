@@ -30,8 +30,9 @@
             android:layout_centerHorizontal="true"
             android:layout_marginBottom="25dp"
             android:text="@string/get_started"
-            android:visibility="invisible"
+            android:enabled="false"
             android:textAllCaps="true"
+            android:alpha="0"
             android:textAppearance="@style/TextStyle.Bold.16dp"
             android:textColor="@color/primaryColor" />
 

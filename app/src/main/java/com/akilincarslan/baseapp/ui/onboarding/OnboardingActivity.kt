@@ -8,8 +8,10 @@ import androidx.viewpager2.widget.ViewPager2
 import com.akilincarslan.baseapp.R
 import com.akilincarslan.baseapp.databinding.ActivityOnboardingBinding
 import com.akilincarslan.baseapp.models.Onboard
+import com.akilincarslan.baseapp.ui.main.MainActivity
 import com.akilincarslan.baseapp.utils.BaseInjectionActivity
 import com.akilincarslan.baseapp.utils.extension.showToast
+import com.akilincarslan.baseapp.utils.extension.startActivity
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -29,11 +31,13 @@ class OnboardingActivity : BaseInjectionActivity<ActivityOnboardingBinding,Onboa
     private fun initBinding() = with(binding){
         viewPager.registerOnPageChangeCallback(object :ViewPager2.OnPageChangeCallback() {
             override fun onPageSelected(position: Int) {
-             buttonGetStarted.isVisible = position == 2
-             buttonGetStarted.animate().alpha(if (position ==2) 1f else 0f)
+                buttonGetStarted.isEnabled = position == 2
+                buttonGetStarted.animate().alpha(if (position ==2) 1f else 0f)
             }
         })
-        buttonGetStarted.setOnClickListener {}
+        buttonGetStarted.setOnClickListener {
+            startActivity(MainActivity::class.java)
+        }
     }
 
     private fun initObservers() {

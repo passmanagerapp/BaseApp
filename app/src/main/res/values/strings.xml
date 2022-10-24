@@ -10,4 +10,5 @@
     <string name="onboard_desc2">Check and read the details of a movie from a movie clip.</string>
     <string name="onboard_desc3">Filter the movies and philosophers by date or country</string>
     <string name="get_started">Get Started</string>
+    <string name="loading">Loading..</string>
 </resources>
