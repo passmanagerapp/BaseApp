@@ -10,6 +10,7 @@ import androidx.lifecycle.ViewModelProvider
 abstract class BaseInjectionActivity<DB: ViewDataBinding, VM: ViewModel> :BaseActivity() {
     protected lateinit var  binding: DB
     protected lateinit var  viewModel: VM
+    lateinit var TAG :String
 
     @LayoutRes
     protected abstract fun getLayoutRes() :Int
@@ -20,6 +21,7 @@ abstract class BaseInjectionActivity<DB: ViewDataBinding, VM: ViewModel> :BaseAc
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this,getLayoutRes())
         viewModel = ViewModelProvider(this)[getViewModelClass()]
+        TAG = localClassName
     }
 
 }

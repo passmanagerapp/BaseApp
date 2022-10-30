@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.inputmethod.InputMethodManager
 import androidx.appcompat.app.AppCompatActivity
 import com.akilincarslan.baseapp.ui.dialog.LoadingDialog
+import com.akilincarslan.baseapp.utils.helpers.LocalHelper
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -14,7 +15,7 @@ abstract class BaseActivity : AppCompatActivity() {
         getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
     }
 
-    private var loadingDialog :LoadingDialog ? = null
+    private var loadingDialog: LoadingDialog? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -39,8 +40,12 @@ abstract class BaseActivity : AppCompatActivity() {
 
     fun hideSoftKeyboard() {
         currentFocus?.let {
-            inputMethodManager.hideSoftInputFromWindow(it.windowToken,0)
+            inputMethodManager.hideSoftInputFromWindow(it.windowToken, 0)
         }
     }
+
+    val localHelper: LocalHelper
+        get() = LocalHelper(this)
+
 
 }

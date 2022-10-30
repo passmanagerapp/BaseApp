@@ -14,7 +14,7 @@ abstract class BaseInjectionFragment<DB: ViewDataBinding, VM: ViewModel> :BaseFr
 
     protected lateinit var binding: DB
     protected lateinit var viewModel: VM
-
+    lateinit var TAG :String
     @LayoutRes
     protected abstract fun getLayoutRes():Int
 
@@ -31,6 +31,7 @@ abstract class BaseInjectionFragment<DB: ViewDataBinding, VM: ViewModel> :BaseFr
         savedInstanceState: Bundle?
     ): View? {
         binding = DataBindingUtil.inflate(inflater,getLayoutRes(),container,false)
+        TAG = tag.toString()
         return binding.root
     }
 }

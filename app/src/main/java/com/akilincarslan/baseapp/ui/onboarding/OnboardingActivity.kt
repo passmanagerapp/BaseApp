@@ -6,12 +6,16 @@ import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.core.view.isVisible
 import androidx.viewpager2.widget.ViewPager2
 import com.akilincarslan.baseapp.R
+import com.akilincarslan.baseapp.constants.LocalConstant
 import com.akilincarslan.baseapp.databinding.ActivityOnboardingBinding
 import com.akilincarslan.baseapp.models.Onboard
+import com.akilincarslan.baseapp.repos.OnboardRepositoryImpl
+import com.akilincarslan.baseapp.ui.auth.AuthActivity
 import com.akilincarslan.baseapp.ui.main.MainActivity
 import com.akilincarslan.baseapp.utils.BaseInjectionActivity
 import com.akilincarslan.baseapp.utils.extension.showToast
 import com.akilincarslan.baseapp.utils.extension.startActivity
+import com.akilincarslan.baseapp.utils.helpers.LocalHelper
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -22,10 +26,18 @@ class OnboardingActivity : BaseInjectionActivity<ActivityOnboardingBinding,Onboa
 
     override fun onCreate(savedInstanceState: Bundle?) {
         installSplashScreen()
+        checkAndNavigateToAuth()
         super.onCreate(savedInstanceState)
         initBinding()
         initObservers()
         viewModel.fetchOnboardList()
+    }
+
+    private fun checkAndNavigateToAuth() {
+        if (localHelper.getPrefBoolean(LocalConstant.IS_ONBOARD_COMPLETED,false)) {
+            startActivity(AuthActivity::class.java)
+            finish()
+        }
     }
 
     private fun initBinding() = with(binding){
@@ -36,7 +48,9 @@ class OnboardingActivity : BaseInjectionActivity<ActivityOnboardingBinding,Onboa
             }
         })
         buttonGetStarted.setOnClickListener {
-            startActivity(MainActivity::class.java)
+            localHelper.putPrefBoolean(LocalConstant.IS_ONBOARD_COMPLETED,true)
+            startActivity(AuthActivity::class.java)
+            finish()
         }
     }
 

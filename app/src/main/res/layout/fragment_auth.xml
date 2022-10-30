@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:alpha="0.8"
+        android:background="@drawable/auth_bg"
+        tools:context=".ui.auth.main.AuthFragment">
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/iv_logo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="24dp"
+            android:src="@mipmap/ic_launcher"
+            app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.App.CornerCut" />
+
+        <TextView
+            android:id="@+id/tv_title"
+            style="@style/TextStyle.ExtraBold.18dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/iv_logo"
+            android:layout_alignStart="@id/iv_logo"
+            android:text="@string/onboarding_title"
+            android:textColor="@color/white"
+            android:textSize="34sp" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_register"
+            style="@style/AuthButtonStyle"
+            android:layout_above="@id/btn_login"
+            android:layout_marginBottom="5dp"
+            android:text="@string/register" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_login"
+            style="@style/AuthButtonStyle"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="50dp"
+            android:text="@string/login" />
+
+
+    </RelativeLayout>
+</layout>

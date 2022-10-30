@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:alpha="0.8"
+        android:background="@drawable/auth_bg"
+        tools:context=".ui.auth.register.RegisterFragment">
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/iv_logo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="24dp"
+            android:src="@mipmap/ic_launcher"
+            app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.App.CornerCut" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/til_name"
+            style="@style/AuthTextInputLayoutStyle"
+            android:layout_below="@id/iv_logo"
+            android:layout_marginTop="16dp"
+            android:hint="@string/name"
+            app:startIconDrawable="@drawable/account_outline"
+            app:startIconTint="@color/white">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/et_name"
+                style="@style/AuthTextInputEditTextStyle"
+                android:imeOptions="actionNext"
+                android:inputType="textCapSentences" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/til_email"
+            style="@style/AuthTextInputLayoutStyle"
+            android:layout_below="@id/til_name"
+            android:layout_marginTop="16dp"
+            android:hint="@string/email"
+            app:startIconDrawable="@drawable/email_outline"
+            app:startIconTint="@color/white">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/et_email"
+                style="@style/AuthTextInputEditTextStyle"
+                android:imeOptions="actionNext"
+                android:inputType="textEmailAddress" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/til_password"
+            style="@style/AuthTextInputLayoutStyle"
+            android:layout_below="@id/til_email"
+            android:layout_marginTop="16dp"
+            android:hint="@string/password"
+            app:endIconMode="password_toggle"
+            app:endIconTint="@color/white"
+            app:startIconDrawable="@drawable/lock_outline"
+            app:startIconTint="@color/white">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/et_password"
+                style="@style/AuthTextInputEditTextStyle"
+                android:imeOptions="actionNext"
+                android:inputType="textEmailAddress" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/til_confirm_password"
+            style="@style/AuthTextInputLayoutStyle"
+            android:layout_below="@id/til_password"
+            android:layout_marginTop="16dp"
+            android:hint="@string/confirm_password"
+            app:endIconMode="password_toggle"
+            app:endIconTint="@color/white"
+            app:startIconDrawable="@drawable/lock_outline"
+            app:startIconTint="@color/white">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/et_confirm_password"
+                style="@style/AuthTextInputEditTextStyle"
+                android:imeOptions="actionDone"
+                android:inputType="textEmailAddress" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_register"
+            style="@style/AuthButtonStyle"
+            android:layout_below="@id/til_confirm_password"
+            android:layout_marginTop="25dp"
+            android:text="@string/register" />
+
+    </RelativeLayout>
+</layout>
