@@ -11,6 +11,8 @@ import androidx.core.widget.doOnTextChanged
 import com.akilincarslan.baseapp.R
 import com.akilincarslan.baseapp.databinding.FragmentRegisterBinding
 import com.akilincarslan.baseapp.utils.BaseInjectionFragment
+import com.akilincarslan.baseapp.utils.DialogUtils
+import com.google.android.material.textfield.TextInputLayout
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -24,27 +26,37 @@ class RegisterFragment : BaseInjectionFragment<FragmentRegisterBinding,RegisterV
     }
 
     private fun initBinding() = with(binding){
-
+        checkEmptyFields(etName,tilName)
+        checkEmptyFields(etEmail,tilEmail)
+        checkEmptyFields(etPassword,tilPassword)
+        checkEmptyFields(etConfirmPassword,tilConfirmPassword)
         btnRegister.setOnClickListener {
-            checkEmptyFields(etName)
-            checkEmptyFields(etEmail)
-            checkEmptyFields(etPassword)
-            checkEmptyFields(etConfirmPassword)
+          if (isFieldEmpty(etName) || isFieldEmpty(etEmail) || isFieldEmpty(etPassword) || isFieldEmpty(etConfirmPassword))
+            DialogUtils.showErrorDialog(requireContext(),"Please check empty fields")
+          else if (!isPasswordsEqual(etPassword,etConfirmPassword))
+              // todo snackbar or alert dialog
+          else
+            register()
         }
     }
 
-    private fun checkEmptyFields(editText: EditText) :Pair<Boolean,String> {
-        var isEmpty = true
-        var text =""
-        editText.doAfterTextChanged { input->
-            input?.let {
-                isEmpty = it.isEmpty()
-                text = it.toString()
-            }
+    private fun checkEmptyFields(editText: EditText,inputLayout: TextInputLayout) {
+        editText.doOnTextChanged { text, start, before, count ->
+            inputLayout.isErrorEnabled = text.isNullOrEmpty()
+            inputLayout.error = if (text.isNullOrEmpty()) getString(R.string.empty_field_error_message, inputLayout.hint.toString().lowercase()) else null
         }
-        if (isEmpty)
-            editText.error = "You must enter ${editText.hint.toString().lowercase()}"
-        return Pair(isEmpty,text)
+    }
+
+    private fun isFieldEmpty(editText: EditText) :Boolean {
+        return editText.text.toString().isEmpty()
+    }
+
+    private fun isPasswordsEqual(editText1: EditText,editText2: EditText) :Boolean {
+        return editText1.text.toString().equals(editText2.text.toString())
+    }
+
+    private fun register() {
+
     }
 
 }

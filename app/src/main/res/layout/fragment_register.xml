@@ -70,7 +70,7 @@
                 android:id="@+id/et_password"
                 style="@style/AuthTextInputEditTextStyle"
                 android:imeOptions="actionNext"
-                android:inputType="textEmailAddress" />
+                android:inputType="textPassword" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
@@ -88,7 +88,7 @@
                 android:id="@+id/et_confirm_password"
                 style="@style/AuthTextInputEditTextStyle"
                 android:imeOptions="actionDone"
-                android:inputType="textEmailAddress" />
+                android:inputType="textPassword" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.button.MaterialButton
