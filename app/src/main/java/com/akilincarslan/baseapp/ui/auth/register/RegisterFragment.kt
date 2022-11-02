@@ -5,6 +5,9 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.EditText
+import androidx.core.widget.doAfterTextChanged
+import androidx.core.widget.doOnTextChanged
 import com.akilincarslan.baseapp.R
 import com.akilincarslan.baseapp.databinding.FragmentRegisterBinding
 import com.akilincarslan.baseapp.utils.BaseInjectionFragment
@@ -17,6 +20,31 @@ class RegisterFragment : BaseInjectionFragment<FragmentRegisterBinding,RegisterV
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        initBinding()
+    }
+
+    private fun initBinding() = with(binding){
+
+        btnRegister.setOnClickListener {
+            checkEmptyFields(etName)
+            checkEmptyFields(etEmail)
+            checkEmptyFields(etPassword)
+            checkEmptyFields(etConfirmPassword)
+        }
+    }
+
+    private fun checkEmptyFields(editText: EditText) :Pair<Boolean,String> {
+        var isEmpty = true
+        var text =""
+        editText.doAfterTextChanged { input->
+            input?.let {
+                isEmpty = it.isEmpty()
+                text = it.toString()
+            }
+        }
+        if (isEmpty)
+            editText.error = "You must enter ${editText.hint.toString().lowercase()}"
+        return Pair(isEmpty,text)
     }
 
 }
