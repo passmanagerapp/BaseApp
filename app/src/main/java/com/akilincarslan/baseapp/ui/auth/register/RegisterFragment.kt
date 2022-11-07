@@ -1,6 +1,7 @@
 package com.akilincarslan.baseapp.ui.auth.register
 
 import android.os.Bundle
+import android.util.Patterns
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -32,9 +33,13 @@ class RegisterFragment : BaseInjectionFragment<FragmentRegisterBinding,RegisterV
         checkEmptyFields(etConfirmPassword,tilConfirmPassword)
         btnRegister.setOnClickListener {
           if (isFieldEmpty(etName) || isFieldEmpty(etEmail) || isFieldEmpty(etPassword) || isFieldEmpty(etConfirmPassword))
-            DialogUtils.showErrorDialog(requireContext(),"Please check empty fields")
+            DialogUtils.showErrorDialog(requireContext(),getString(R.string.check_empty_fields))
+          else if (!isEmailValid())
+              tilEmail.error = getString(R.string.valid_email_address_error)
+          else if (!isPasswordStrength())
+              tilPassword.error = getString(R.string.password_length)
           else if (!isPasswordsEqual(etPassword,etConfirmPassword))
-              // todo snackbar or alert dialog
+              tilConfirmPassword.error = getString(R.string.password_not_equal)
           else
             register()
         }
@@ -55,8 +60,17 @@ class RegisterFragment : BaseInjectionFragment<FragmentRegisterBinding,RegisterV
         return editText1.text.toString().equals(editText2.text.toString())
     }
 
-    private fun register() {
+    private fun isPasswordStrength() :Boolean {
+        return binding.etPassword.text.toString().count() >= 6
+    }
 
+    private fun isEmailValid() : Boolean {
+        return Patterns.EMAIL_ADDRESS.matcher(binding.etEmail.text.toString()).matches()
+    }
+
+    private fun register() {
+        hideSoftKeyboard()
+        showProgressDialog()
     }
 
 }

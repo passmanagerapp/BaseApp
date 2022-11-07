@@ -22,4 +22,9 @@
     <string name="password">Password</string>
     <string name="confirm_password">Confirm password</string>
     <string name="empty_field_error_message">Provide your %s</string>
+    <string name="ok">OK</string>
+    <string name="password_not_equal">Passwords not equal</string>
+    <string name="check_empty_fields">Please check empty fields</string>
+    <string name="password_length">Password length must be greater than 6</string>
+    <string name="valid_email_address_error">Please provide valid email address</string>
 </resources>

@@ -14,7 +14,10 @@ class DialogUtils {
             val binding = DialogErrorBinding.inflate(LayoutInflater.from(context))
             binding.tvMessage.text = message
             builder.setView(binding.root)
-            builder.create().show()
+            val dialog = builder.create()
+            dialog.show()
+            binding.ivClose.setOnClickListener { dialog.dismiss()}
+            binding.btnConfirm.setOnClickListener { dialog.dismiss()}
         }
     }
 }
