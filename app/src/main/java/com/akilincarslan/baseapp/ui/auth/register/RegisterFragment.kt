@@ -2,17 +2,17 @@ package com.akilincarslan.baseapp.ui.auth.register
 
 import android.os.Bundle
 import android.util.Patterns
-import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import android.widget.EditText
-import androidx.core.widget.doAfterTextChanged
+import android.widget.Toast
 import androidx.core.widget.doOnTextChanged
 import com.akilincarslan.baseapp.R
 import com.akilincarslan.baseapp.databinding.FragmentRegisterBinding
+import com.akilincarslan.baseapp.enums.Status
+import com.akilincarslan.baseapp.models.User
 import com.akilincarslan.baseapp.utils.BaseInjectionFragment
 import com.akilincarslan.baseapp.utils.DialogUtils
+import com.akilincarslan.baseapp.utils.extension.ignoreNull
 import com.google.android.material.textfield.TextInputLayout
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -24,7 +24,9 @@ class RegisterFragment : BaseInjectionFragment<FragmentRegisterBinding,RegisterV
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         initBinding()
+        initObservers()
     }
+
 
     private fun initBinding() = with(binding){
         checkEmptyFields(etName,tilName)
@@ -41,7 +43,25 @@ class RegisterFragment : BaseInjectionFragment<FragmentRegisterBinding,RegisterV
           else if (!isPasswordsEqual(etPassword,etConfirmPassword))
               tilConfirmPassword.error = getString(R.string.password_not_equal)
           else
-            register()
+            register(etEmail.text?.toString().ignoreNull(),etPassword.text?.toString().ignoreNull())
+        }
+    }
+
+
+    private fun initObservers() {
+        viewModel.registerResult.observe(viewLifecycleOwner) {
+            when(it.status) {
+                Status.SUCCESS -> {
+                    hideProgressDialog()
+                }
+                Status.LOADING -> {
+                    showProgressDialog()
+                }
+                Status.ERROR -> {
+                    hideProgressDialog()
+                    DialogUtils.showErrorDialog(requireContext(),it.errorMessage ?: "")
+                }
+            }
         }
     }
 
@@ -68,9 +88,11 @@ class RegisterFragment : BaseInjectionFragment<FragmentRegisterBinding,RegisterV
         return Patterns.EMAIL_ADDRESS.matcher(binding.etEmail.text.toString()).matches()
     }
 
-    private fun register() {
+    private fun register(email: String, password: String) {
         hideSoftKeyboard()
-        showProgressDialog()
+        viewModel.registerUser(User(email,password))
     }
+
+
 
 }

@@ -76,6 +76,7 @@ dependencies {
     implementation platform("com.google.firebase:firebase-bom:${firebaseVersion}")
     implementation 'com.google.firebase:firebase-analytics-ktx'
     implementation 'com.google.firebase:firebase-crashlytics-ktx'
+    implementation 'com.google.firebase:firebase-auth-ktx'
 
     implementation 'androidx.core:core-splashscreen:1.0.0'
     implementation "com.tbuonomo:dotsindicator:4.3"

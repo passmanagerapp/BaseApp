@@ -4,7 +4,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.akilincarslan.baseapp.models.Onboard
-import com.akilincarslan.baseapp.repos.OnboardRepository
+import com.akilincarslan.baseapp.repos.onboard.OnboardRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject

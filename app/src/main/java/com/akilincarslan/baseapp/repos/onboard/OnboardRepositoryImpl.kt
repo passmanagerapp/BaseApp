@@ -1,11 +1,11 @@
-package com.akilincarslan.baseapp.repos
+package com.akilincarslan.baseapp.repos.onboard
 
 import android.content.Context
 import com.akilincarslan.baseapp.R
 import com.akilincarslan.baseapp.models.Onboard
 import javax.inject.Inject
 
-class OnboardRepositoryImpl @Inject constructor(val context:Context) :OnboardRepository{
+class OnboardRepositoryImpl @Inject constructor(val context:Context) : OnboardRepository {
 
     override suspend fun fetchOnboardList(): List<Onboard> {
         return listOf(

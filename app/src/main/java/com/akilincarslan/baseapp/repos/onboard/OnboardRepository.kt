@@ -1,4 +1,4 @@
-package com.akilincarslan.baseapp.repos
+package com.akilincarslan.baseapp.repos.onboard
 
 import com.akilincarslan.baseapp.models.Onboard
 

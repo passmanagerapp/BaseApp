@@ -1,8 +1,8 @@
 package com.akilincarslan.baseapp.module
 
-import com.akilincarslan.baseapp.network.services.profile.ProfileRemoteDataSource
-import com.akilincarslan.baseapp.network.services.profile.ProfileRemoteDataSourceImpl
-import com.akilincarslan.baseapp.network.services.profile.ProfileService
+import com.akilincarslan.baseapp.network.services.auth.AuthRemoteDataSource
+import com.akilincarslan.baseapp.network.services.auth.AuthRemoteDataSourceImpl
+import com.google.firebase.auth.FirebaseAuth
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -15,9 +15,9 @@ class DataSourceModule {
 
     @Provides
     @Singleton
-    fun providesProfileRemoteDataSource(
-        service: ProfileService
-    ) :ProfileRemoteDataSource {
-        return ProfileRemoteDataSourceImpl(service)
+    fun providesAuthRemoteDataSource(
+        auth:FirebaseAuth
+    ) : AuthRemoteDataSource {
+        return AuthRemoteDataSourceImpl(auth)
     }
 }
