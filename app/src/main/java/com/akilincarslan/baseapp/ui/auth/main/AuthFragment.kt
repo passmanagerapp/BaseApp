@@ -22,5 +22,6 @@ class AuthFragment : BaseInjectionFragment<FragmentAuthBinding,AuthViewModel>() 
 
     private fun initBinding() = with(binding) {
         btnRegister.setOnClickListener { navigate(R.id.action_authFragment_to_registerFragment) }
+        btnLogin.setOnClickListener { navigate(R.id.action_authFragment_to_loginFragment) }
     }
 }

@@ -1,4 +1,4 @@
-package com.akilincarslan.baseapp.ui.auth.register
+package com.akilincarslan.baseapp.ui.auth.forgotpassword
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -10,14 +10,13 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 
 @HiltViewModel
-class RegisterViewModel @Inject constructor(
+class ForgotPasswordViewModel @Inject constructor(
     private val repository: AuthRepository
 ) : ViewModel() {
 
-    val registerResult = MutableLiveData<Resource<AuthResult>>()
+    val resetPasswordResult = MutableLiveData<Resource<Void>>()
 
-    fun registerUser(user: User) {
-        repository.registerUser(user,registerResult)
+    fun sendResetPasswordLink(email: String) {
+        repository.sendResetPasswordLink(email,resetPasswordResult)
     }
-
 }

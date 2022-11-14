@@ -9,8 +9,10 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.NavDirections
 import androidx.navigation.NavOptions
 import androidx.navigation.fragment.findNavController
+import com.akilincarslan.baseapp.R
 import com.akilincarslan.baseapp.ui.dialog.LoadingDialog
 import com.akilincarslan.baseapp.utils.helpers.LocalHelper
+import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -38,6 +40,10 @@ abstract class BaseFragment : Fragment() {
         findNavController().navigate(direction, navOptions)
     }
 
+    fun navigateBack() {
+        findNavController().popBackStack()
+    }
+
     fun hideSoftKeyboard() {
         activity?.currentFocus?.let {
                 inputMethodManager.hideSoftInputFromWindow(it.windowToken, 0)
@@ -59,5 +65,11 @@ abstract class BaseFragment : Fragment() {
             if (!requireActivity().isFinishing && it.isShowing)
                 it.dismiss()
         }
+    }
+
+    fun showSnackbar(message:String,block :() -> Unit) {
+        Snackbar.make(requireView(),message,Snackbar.LENGTH_LONG)
+            .setAction(getString(R.string.open)) { block() }
+            .show()
     }
 }

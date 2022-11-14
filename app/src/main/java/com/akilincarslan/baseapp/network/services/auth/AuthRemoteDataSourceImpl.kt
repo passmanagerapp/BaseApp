@@ -19,4 +19,29 @@ class AuthRemoteDataSourceImpl @Inject constructor(
                 }
             }
     }
+
+    override fun sendResetPasswordLink(
+        emailAddress: String,
+        listener: ResponseListener<Void>
+    ) {
+        auth.sendPasswordResetEmail(emailAddress)
+            .addOnCompleteListener {
+                if (it.isSuccessful) {
+                    listener.onSuccess(it.result)
+                } else {
+                    listener.onFailure(it.exception?.message)
+                }
+            }
+    }
+
+    override fun signInUser(user: User, listener: ResponseListener<AuthResult>) {
+        auth.signInWithEmailAndPassword(user.email,user.password)
+            .addOnCompleteListener {
+            if (it.isSuccessful) {
+                listener.onSuccess(it.result)
+            } else {
+                listener.onFailure(it.exception?.message)
+            }
+        }
+    }
 }

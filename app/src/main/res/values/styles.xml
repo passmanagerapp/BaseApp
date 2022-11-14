@@ -122,6 +122,10 @@
     <style name="TextStyle.Bold.24dp" parent="Text.TextBold">
         <item name="android:textSize">24sp</item>
     </style>
+
+    <style name="TextStyle.Bold.32dp" parent="Text.TextBold">
+        <item name="android:textSize">32sp</item>
+    </style>
     <!--Bold text style-->
 
     <!--ExtraBold text style-->

@@ -6,6 +6,7 @@ import android.view.View
 import android.widget.EditText
 import android.widget.Toast
 import androidx.core.widget.doOnTextChanged
+import androidx.navigation.fragment.findNavController
 import com.akilincarslan.baseapp.R
 import com.akilincarslan.baseapp.databinding.FragmentRegisterBinding
 import com.akilincarslan.baseapp.enums.Status
@@ -33,6 +34,8 @@ class RegisterFragment : BaseInjectionFragment<FragmentRegisterBinding,RegisterV
         checkEmptyFields(etEmail,tilEmail)
         checkEmptyFields(etPassword,tilPassword)
         checkEmptyFields(etConfirmPassword,tilConfirmPassword)
+
+        ivBack.setOnClickListener { navigateBack() }
         btnRegister.setOnClickListener {
           if (isFieldEmpty(etName) || isFieldEmpty(etEmail) || isFieldEmpty(etPassword) || isFieldEmpty(etConfirmPassword))
             DialogUtils.showErrorDialog(requireContext(),getString(R.string.check_empty_fields))
@@ -53,6 +56,7 @@ class RegisterFragment : BaseInjectionFragment<FragmentRegisterBinding,RegisterV
             when(it.status) {
                 Status.SUCCESS -> {
                     hideProgressDialog()
+                    navigate(R.id.action_registerFragment_to_loginFragment)
                 }
                 Status.LOADING -> {
                     showProgressDialog()

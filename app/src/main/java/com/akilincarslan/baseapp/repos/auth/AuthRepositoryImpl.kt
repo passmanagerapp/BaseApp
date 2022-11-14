@@ -11,12 +11,41 @@ import javax.inject.Inject
 
 class AuthRepositoryImpl @Inject constructor(
     private val remoteDataSource: AuthRemoteDataSource
-) :AuthRepository{
+) : AuthRepository {
 
     override fun registerUser(user: User, result: MutableLiveData<Resource<AuthResult>>) {
         result.value = Resource.loading()
-        remoteDataSource.registerUser(user,object :ResponseListener<AuthResult> {
-            override fun onSuccess(response: AuthResult) {
+        remoteDataSource.registerUser(user, object : ResponseListener<AuthResult> {
+            override fun onSuccess(response: AuthResult?) {
+                result.value = Resource.success(response)
+            }
+
+            override fun onFailure(errorMessage: String?) {
+                result.value = Resource.error(errorMessage)
+            }
+        })
+    }
+
+    override fun sendResetPasswordLink(
+        emailAddress: String,
+        result: MutableLiveData<Resource<Void>>
+    ) {
+        result.value = Resource.loading()
+        remoteDataSource.sendResetPasswordLink(emailAddress, object : ResponseListener<Void> {
+            override fun onSuccess(response: Void?) {
+                result.value = Resource.success(response)
+            }
+
+            override fun onFailure(errorMessage: String?) {
+                result.value = Resource.error(errorMessage)
+            }
+        })
+    }
+
+    override fun signInUser(user: User, result: MutableLiveData<Resource<AuthResult>>) {
+        result.value = Resource.loading()
+        remoteDataSource.signInUser(user, object : ResponseListener<AuthResult> {
+            override fun onSuccess(response: AuthResult?) {
                 result.value = Resource.success(response)
             }
 

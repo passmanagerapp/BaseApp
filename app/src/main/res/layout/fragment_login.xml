@@ -23,26 +23,21 @@
             android:src="@drawable/ic_baseline_arrow_back_24"
             app:tint="@color/white" />
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/til_name"
-            style="@style/AuthTextInputLayoutStyle"
+        <TextView
+            android:id="@+id/tv_description"
+            style="@style/TextStyle.Bold.32dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_below="@id/iv_back"
-            android:layout_marginTop="16dp"
-            android:hint="@string/name"
-            app:startIconDrawable="@drawable/account_outline"
-            app:startIconTint="@color/white">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/et_name"
-                style="@style/AuthTextInputEditTextStyle"
-                android:imeOptions="actionNext"
-                android:inputType="textCapSentences" />
-        </com.google.android.material.textfield.TextInputLayout>
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="32dp"
+            android:text="@string/login_description"
+            android:textColor="@color/white" />
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/til_email"
             style="@style/AuthTextInputLayoutStyle"
-            android:layout_below="@id/til_name"
+            android:layout_below="@id/tv_description"
             android:layout_marginTop="16dp"
             android:hint="@string/email"
             app:startIconDrawable="@drawable/email_outline"
@@ -69,34 +64,53 @@
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/et_password"
                 style="@style/AuthTextInputEditTextStyle"
-                android:imeOptions="actionNext"
-                android:inputType="textPassword" />
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/til_confirm_password"
-            style="@style/AuthTextInputLayoutStyle"
-            android:layout_below="@id/til_password"
-            android:layout_marginTop="16dp"
-            android:hint="@string/confirm_password"
-            app:endIconMode="password_toggle"
-            app:endIconTint="@color/white"
-            app:startIconDrawable="@drawable/lock_outline"
-            app:startIconTint="@color/white">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/et_confirm_password"
-                style="@style/AuthTextInputEditTextStyle"
                 android:imeOptions="actionDone"
                 android:inputType="textPassword" />
         </com.google.android.material.textfield.TextInputLayout>
 
+        <LinearLayout
+            android:id="@+id/layout_social_login"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/til_password"
+            android:layout_marginTop="16dp"
+            android:gravity="center"
+            android:padding="10dp">
+
+            <ImageView
+                android:id="@+id/iv_google"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="10dp"
+                android:src="@drawable/ic_google" />
+
+            <ImageView
+                android:id="@+id/iv_facebook"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:src="@drawable/ic_facebook" />
+
+        </LinearLayout>
+
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/btn_register"
+            android:id="@+id/btn_login"
             style="@style/AuthButtonStyle"
-            android:layout_below="@id/til_confirm_password"
+            android:layout_below="@id/layout_social_login"
             android:layout_marginTop="25dp"
-            android:text="@string/register" />
+            android:text="@string/login" />
+
+        <TextView
+            android:id="@+id/tv_forgot_password"
+            style="@style/TextStyle.SemiBold.14dp"
+            android:layout_width="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/btn_login"
+            android:layout_centerHorizontal="true"
+            android:text="@string/forgot_your_password"
+            android:textColor="@color/white" />
+
 
     </RelativeLayout>
 </layout>

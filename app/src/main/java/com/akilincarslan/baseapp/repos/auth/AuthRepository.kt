@@ -7,4 +7,7 @@ import com.google.firebase.auth.AuthResult
 
 interface AuthRepository {
     fun registerUser(user:User,result :MutableLiveData<Resource<AuthResult>>)
+    fun sendResetPasswordLink(emailAddress:String,result :MutableLiveData<Resource<Void>>)
+    fun signInUser(user:User,result :MutableLiveData<Resource<AuthResult>>)
+
 }
