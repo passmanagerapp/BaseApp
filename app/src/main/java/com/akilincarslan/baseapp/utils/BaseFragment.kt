@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.View
 import android.view.inputmethod.InputMethodManager
 import androidx.activity.addCallback
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.navigation.NavDirections
 import androidx.navigation.NavOptions
@@ -69,6 +70,9 @@ abstract class BaseFragment : Fragment() {
 
     fun showSnackbar(message:String,block :() -> Unit) {
         Snackbar.make(requireView(),message,Snackbar.LENGTH_LONG)
+            .setBackgroundTint(ContextCompat.getColor(requireContext(),R.color.dark_gray))
+            .setTextColor(ContextCompat.getColor(requireContext(),R.color.white))
+            .setActionTextColor(ContextCompat.getColor(requireContext(),R.color.pink))
             .setAction(getString(R.string.open)) { block() }
             .show()
     }

@@ -10,5 +10,8 @@
     <color name="gray_75">#757575</color>
     <color name="onboard_bg_color">#D6D6D6</color>
     <color name="red">#BF360C</color>
+    <color name="pink">#DA00FF</color>
+    <color name="brown">#60210D</color>
+    <color name="dark_gray">#1D1D1D</color>
     <color name="ic_launcher_background">#3f3f3f</color>
 </resources>

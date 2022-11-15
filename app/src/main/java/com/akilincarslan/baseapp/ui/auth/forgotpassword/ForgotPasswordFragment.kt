@@ -55,7 +55,7 @@ class ForgotPasswordFragment : BaseInjectionFragment<FragmentForgotPasswordBindi
                 Status.SUCCESS -> {
                     hideProgressDialog()
                     showSnackbar(getString(R.string.reset_password_email_sent_message)) {
-                        Log.d(TAG, "initObservers: snackBarClicked")
+                        Utils.openDefaultGmailApp()
                     }
                     navigateBack()
                 }

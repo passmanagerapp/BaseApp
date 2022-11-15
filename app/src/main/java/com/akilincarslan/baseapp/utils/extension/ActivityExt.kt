@@ -1,6 +1,7 @@
 package com.akilincarslan.baseapp.utils.extension
 
 import android.app.Activity
+import android.content.ActivityNotFoundException
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
