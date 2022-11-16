@@ -5,6 +5,7 @@ import com.akilincarslan.baseapp.models.User
 import com.akilincarslan.baseapp.network.base.Resource
 import com.akilincarslan.baseapp.network.listener.ResponseListener
 import com.google.firebase.auth.AuthResult
+import com.google.firebase.auth.FirebaseUser
 
 interface AuthRemoteDataSource {
     fun registerUser(user: User, listener:ResponseListener<AuthResult>)

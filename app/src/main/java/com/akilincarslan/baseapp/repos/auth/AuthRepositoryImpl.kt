@@ -7,6 +7,7 @@ import com.akilincarslan.baseapp.network.base.Resource
 import com.akilincarslan.baseapp.network.listener.ResponseListener
 import com.akilincarslan.baseapp.network.services.auth.AuthRemoteDataSource
 import com.google.firebase.auth.AuthResult
+import com.google.firebase.auth.FirebaseUser
 import javax.inject.Inject
 
 class AuthRepositoryImpl @Inject constructor(

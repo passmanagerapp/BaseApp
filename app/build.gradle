@@ -78,6 +78,7 @@ dependencies {
     implementation 'com.google.firebase:firebase-crashlytics-ktx'
     implementation 'com.google.firebase:firebase-auth-ktx'
 
+    implementation 'com.google.android.gms:play-services-auth:20.3.0'
     implementation 'androidx.core:core-splashscreen:1.0.0'
     implementation "com.tbuonomo:dotsindicator:4.3"
 

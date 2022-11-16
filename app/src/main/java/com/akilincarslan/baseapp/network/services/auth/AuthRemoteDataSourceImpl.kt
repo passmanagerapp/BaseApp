@@ -1,9 +1,11 @@
 package com.akilincarslan.baseapp.network.services.auth
 
+import com.akilincarslan.baseapp.core.BaseApplication
 import com.akilincarslan.baseapp.models.User
 import com.akilincarslan.baseapp.network.listener.ResponseListener
 import com.google.firebase.auth.AuthResult
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseUser
 import javax.inject.Inject
 
 class AuthRemoteDataSourceImpl @Inject constructor(

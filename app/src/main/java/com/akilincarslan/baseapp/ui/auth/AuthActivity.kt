@@ -7,7 +7,11 @@ import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.navigateUp
 import com.akilincarslan.baseapp.R
 import com.akilincarslan.baseapp.databinding.ActivityAuthBinding
+import com.akilincarslan.baseapp.ui.main.MainActivity
 import com.akilincarslan.baseapp.utils.BaseInjectionActivity
+import com.akilincarslan.baseapp.utils.extension.startActivity
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.ktx.Firebase
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -24,6 +28,12 @@ class AuthActivity : BaseInjectionActivity<ActivityAuthBinding,AuthViewModel>() 
 
     override fun onSupportNavigateUp(): Boolean {
         return navController.navigateUp() || super.onSupportNavigateUp()
+    }
+
+    override fun onStart() {
+        super.onStart()
+        if (FirebaseAuth.getInstance().currentUser != null)
+            startActivity(MainActivity::class.java)
     }
 
 }
