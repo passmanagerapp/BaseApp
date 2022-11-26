@@ -47,6 +47,14 @@
     <style name="Text.TextSemiBold" parent="Text">
         <item name="android:fontFamily">@font/inter_semibold</item>
     </style>
+
+    <style name="Text.TextMedium" parent="Text">
+        <item name="android:fontFamily">@font/inter_medium</item>
+    </style>
+
+    <style name="Text.TextItalic" parent="Text">
+        <item name="android:fontFamily">@font/inter_italic</item>
+    </style>
     <!--General text style-->
 
     <!--Regular text style-->
@@ -150,6 +158,50 @@
     </style>
     <!--ExtraBold text style-->
 
+    <!--Medium text style-->
+    <style name="TextStyle.Medium.10dp" parent="Text.TextMedium">
+        <item name="android:textSize">10sp</item>
+    </style>
+
+    <style name="TextStyle.Medium.12dp" parent="Text.TextMedium">
+        <item name="android:textSize">12sp</item>
+    </style>
+
+    <style name="TextStyle.Medium.14dp" parent="Text.TextMedium">
+        <item name="android:textSize">14sp</item>
+    </style>
+
+    <style name="TextStyle.Medium.18dp" parent="Text.TextMedium">
+        <item name="android:textSize">18sp</item>
+    </style>
+
+    <style name="TextStyle.Medium.20dp" parent="Text.TextMedium">
+        <item name="android:textSize">20sp</item>
+    </style>
+    <!--Medium text style-->
+
+    <!--Italic text style-->
+    <style name="TextStyle.Italic.10dp" parent="Text.TextItalic">
+        <item name="android:textSize">10sp</item>
+    </style>
+
+    <style name="TextStyle.Italic.12dp" parent="Text.TextItalic">
+        <item name="android:textSize">12sp</item>
+    </style>
+
+    <style name="TextStyle.Italic.14dp" parent="Text.TextItalic">
+        <item name="android:textSize">14sp</item>
+    </style>
+
+    <style name="TextStyle.Italic.18dp" parent="Text.TextItalic">
+        <item name="android:textSize">18sp</item>
+    </style>
+
+    <style name="TextStyle.Italic.20dp" parent="Text.TextItalic">
+        <item name="android:textSize">20sp</item>
+    </style>
+    <!--Italic text style-->
+
     <style name="ShapeAppearanceOverlay.App.CornerSize50Percent" parent="">
         <item name="cornerSize">50%</item>
     </style>
@@ -193,6 +245,11 @@
         <item name="android:layout_height">wrap_content</item>
         <item name="android:background">@android:color/transparent</item>
         <item name="android:textColor">@color/white</item>
+    </style>
+
+    <style name="ShapeAppearance.App.MediumComponent" parent="ShapeAppearance.MaterialComponents.MediumComponent">
+        <item name="cornerFamily">cut</item>
+        <item name="cornerSize">8dp</item>
     </style>
 
 

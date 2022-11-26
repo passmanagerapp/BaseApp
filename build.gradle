@@ -25,4 +25,5 @@ ext {
     okHttpVersion = '4.10.0'
     firebaseVersion = '30.4.1'
     lottieVersion = "3.4.0"
+    glideVersion = "4.14.2"
 }

@@ -2,10 +2,13 @@ package com.akilincarslan.baseapp.module
 
 import android.content.Context
 import com.akilincarslan.baseapp.network.services.auth.AuthRemoteDataSource
+import com.akilincarslan.baseapp.network.services.home.HomeRemoteDataSource
 import com.akilincarslan.baseapp.repos.onboard.OnboardRepository
 import com.akilincarslan.baseapp.repos.onboard.OnboardRepositoryImpl
 import com.akilincarslan.baseapp.repos.auth.AuthRepository
 import com.akilincarslan.baseapp.repos.auth.AuthRepositoryImpl
+import com.akilincarslan.baseapp.repos.home.HomeRepository
+import com.akilincarslan.baseapp.repos.home.HomeRepositoryImpl
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -25,5 +28,10 @@ class RepositoryModule {
     @Singleton
     fun providesAuthRepository(dataSource: AuthRemoteDataSource) : AuthRepository {
         return AuthRepositoryImpl(dataSource)
+    }
+    @Provides
+    @Singleton
+    fun providesHomeRepository(dataSource: HomeRemoteDataSource) : HomeRepository {
+        return HomeRepositoryImpl(dataSource)
     }
 }
