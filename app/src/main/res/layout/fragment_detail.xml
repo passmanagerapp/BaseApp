@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/main_background"
+        android:padding="16dp"
+        tools:context=".ui.detail.DetailFragment">
+
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="350dp"
+            app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.App.CornerCut">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="8dp">
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:layout_width="150dp"
+                    android:layout_height="180dp"
+                    android:background="@color/black"
+                    android:scaleType="centerCrop"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:src="@drawable/dummy_philosopy"
+                    app:strokeColor="@color/dark_gray"
+                    app:strokeWidth="3dp"
+                    app:shapeAppearance="@style/ShapeAppearanceOverlay.App.Circle" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+
+
+    </RelativeLayout>
+</layout>

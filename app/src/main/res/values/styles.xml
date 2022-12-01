@@ -211,6 +211,11 @@
         <item name="cornerFamily">cut</item>
     </style>
 
+    <style name="ShapeAppearanceOverlay.App.Circle" parent="">
+        <item name="cornerSize">60dp</item>
+        <item name="cornerFamily">rounded</item>
+    </style>
+
     <style name="FullScreenDialog" parent="Theme.AppCompat.Light.Dialog.Alert">
         <item name="android:windowActionBar">false</item>
         <item name="android:windowContentOverlay">@null</item>

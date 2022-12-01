@@ -43,7 +43,7 @@ class HomeRemoteDataSourceImpl @Inject constructor(
                         val singleItem = document.toObject(Quote::class.java)
                         itemList.add(singleItem)
                     }
-                    listener.onSuccess(itemList.take(3))
+                    listener.onSuccess(itemList.shuffled().take(3))
                 } else {
                     listener.onFailure(it.exception?.message)
                 }

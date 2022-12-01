@@ -33,4 +33,7 @@
     <string name="reset_password_email_sent_message">Reset password link sent to your email address.</string>
     <string name="top_quotes">Top quotes</string>
     <string name="day_of_quotes">Day of quotes</string>
+    <string name="see_more">see more</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
