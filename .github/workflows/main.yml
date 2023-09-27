@@ -1,0 +1,23 @@
+name: Android CI
+on:
+  push:
+    branches: [feature/ci_cd]
+
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4.1.0
+      - name: Setup Java JDK
+        uses: actions/setup-java@v3.13.0
+        with:
+          distribution: oracle
+          java-version: 17
+      - name: Build with Gradle
+        run: ./gradlew build
+      - name: Upload APK
+        uses: actions/upload-artifact@v3.1.3
+        with:
+          name: app
+          path: app/build/outputs/apk/debug/app-debug.apk
